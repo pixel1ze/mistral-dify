@@ -8,9 +8,11 @@
 *.difypkg.*
 
 # private public key
-
 docker/volumes/plugin_daemon/public_keys/*.pem
 docker/volumes/plugin_daemon/private_keys/*.pem
 
+# DS_Store files
+.DS_Store
 
 # release local
+release-local/
