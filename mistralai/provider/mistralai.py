@@ -1,14 +1,13 @@
 import logging
-from collections.abc import Mapping
-
-from dify_plugin import ModelProvider
 from dify_plugin.entities.model import ModelType
 from dify_plugin.errors.model import CredentialsValidateFailedError
+from dify_plugin import ModelProvider
 
 logger = logging.getLogger(__name__)
 
-class MistralProvider(ModelProvider):
-    def validate_provider_credentials(self, credentials: Mapping) -> None:
+
+class MistralAIProvider(ModelProvider):
+    def validate_provider_credentials(self, credentials: dict) -> None:
         """
         Validate provider credentials
         if validate failed, raise exception
@@ -17,15 +16,9 @@ class MistralProvider(ModelProvider):
         """
         try:
             model_instance = self.get_model_instance(ModelType.LLM)
-
-            # Use a default model for validation
-            model_instance.validate_credentials(
-                model="mistral-small-latest", credentials=credentials
-            )
+            model_instance.validate_credentials(model="open-mistral-7b", credentials=credentials)
         except CredentialsValidateFailedError as ex:
             raise ex
         except Exception as ex:
-            logger.exception(
-                f"{self.get_provider_schema().provider} credentials validate failed"
-            )
+            logger.exception(f"{self.get_provider_schema().provider} credentials validate failed")
             raise ex
