@@ -4,3 +4,9 @@
 .outputs/
 
 *.difypkg
+
+*.difypkg.*
+
+# signatures
+*.private.*
+*.public.*
