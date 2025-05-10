@@ -1,0 +1,68 @@
+provider: mistral
+label:
+  en_US: Mistral AI
+description:
+  en_US: Models provided by Mistral AI, such as chat and embeddings.
+icon_small:
+  en_US: icon_s_en.svg
+icon_large:
+  en_US: icon_l_en.svg
+background: "#E5E7EB"
+help:
+  title:
+    en_US: Get your API Key from Mistral
+  url:
+    en_US: https://console.mistral.ai
+supported_model_types:
+  - llm
+  - text-embedding
+configurate_methods:
+  - predefined-model
+  - customizable-model
+model_credential_schema:
+  model:
+    label:
+      en_US: Model Name
+    placeholder:
+      en_US: Enter your model name
+  credential_form_schemas:
+    - variable: mistral_api_key
+      label:
+        en_US: API Key
+      type: secret-input
+      required: true
+      placeholder:
+        en_US: Enter your API Key
+    - variable: mistral_api_base
+      label:
+        en_US: API Base
+      type: text-input
+      required: true
+      placeholder:
+        en_US: Enter your API Base, e.g. https://api.mistral.ai
+provider_credential_schema:
+  credential_form_schemas:
+    - variable: mistral_api_key
+      label:
+        en_US: API Key
+      type: secret-input
+      required: true
+      placeholder:
+        en_US: Enter your API Key
+    - variable: mistral_api_base
+      label:
+        en_US: API Base
+      type: text-input
+      required: true
+      placeholder:
+        en_US: Enter your API Base, e.g. https://api.mistral.ai
+models:
+  llm:
+    predefined:
+      - "models/llm/*.yaml"
+  text_embedding:
+    predefined:
+      - "models/text_embedding/*.yaml"
+extra:
+  python:
+    provider_source: provider/mistral.py

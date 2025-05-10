@@ -1,0 +1,12 @@
+id: mistral-embed
+name: Mistral Embed
+type: text-embedding
+description: A Mistral model optimized for generating text embeddings.
+api:
+  endpoint: /v1/embeddings
+  method: POST
+  headers:
+    Authorization: Bearer {{ mistral_api_key }}
+  body:
+    model: mistral-embed
+    input: {{ input }}

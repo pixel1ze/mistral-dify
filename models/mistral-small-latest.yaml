@@ -1,0 +1,14 @@
+id: mistral-small-latest
+name: Mistral Small Latest
+type: llm
+description: A lightweight Mistral model optimized for chat completions.
+api:
+  endpoint: /v1/chat/completions
+  method: POST
+  headers:
+    Authorization: Bearer {{ mistral_api_key }}
+  body:
+    model: mistral-small-latest
+    messages: {{ messages }}
+    temperature: {{ temperature | default(0.7) }}
+    max_tokens: {{ max_tokens | default(256) }}

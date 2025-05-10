@@ -1,0 +1,15 @@
+id: codestral-latest
+name: Codestral Latest
+type: llm
+description: A Mistral model optimized for code completions.
+api:
+  endpoint: /v1/fim/completions
+  method: POST
+  headers:
+    Authorization: Bearer {{ mistral_api_key }}
+  body:
+    model: codestral-latest
+    prompt: {{ prompt }}
+    suffix: {{ suffix | default('') }}
+    temperature: {{ temperature | default(0.7) }}
+    max_tokens: {{ max_tokens | default(256) }}

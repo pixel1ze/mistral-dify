@@ -1,0 +1,14 @@
+id: open-mistral-nemo
+name: Open Mistral Nemo
+type: llm
+description: A specialized Mistral model for conversational AI.
+api:
+  endpoint: /v1/chat/completions
+  method: POST
+  headers:
+    Authorization: Bearer {{ mistral_api_key }}
+  body:
+    model: open-mistral-nemo
+    messages: {{ messages }}
+    temperature: {{ temperature | default(0.7) }}
+    max_tokens: {{ max_tokens | default(256) }}

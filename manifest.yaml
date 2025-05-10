@@ -1,0 +1,30 @@
+version: 0.0.1
+type: plugin
+author: "langgenius"
+name: "mistralai"
+description:
+  en_US: Models provided by Mistral AI, such as chat and embeddings.
+label:
+  en_US: "Mistral AI"
+created_at: "2025-10-05T21:06:00Z"
+icon: icon_s_en.svg
+resource:
+  memory: 1048576
+  permission:
+    tool:
+      enabled: true
+    model:
+      enabled: true
+      llm: true
+plugins:
+  models:
+    - "provider/mistral.yaml"
+meta:
+  version: 0.0.1
+  arch:
+    - "amd64"
+    - "arm64"
+  runner:
+    language: "python"
+    version: "3.12"
+    entrypoint: "main"
