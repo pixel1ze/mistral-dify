@@ -7,6 +7,10 @@
 
 *.difypkg.*
 
-# signatures
-*.private.*
-*.public.*
+# private public key
+
+docker/volumes/plugin_daemon/public_keys/*.pem
+docker/volumes/plugin_daemon/private_keys/*.pem
+
+
+# release local
